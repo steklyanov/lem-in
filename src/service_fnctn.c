@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 14:45:58 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/06 16:43:21 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/06 17:51:06 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,14 @@ void    print_long_int(unsigned long long num)
         i--;
     }
     ft_printf("\n");
+}
+
+
+long long   *init_long_arr()
+{
+    long long *arr;
+
+    if (!(arr = (long long*)malloc(sizeof(long long) * 7)))
+        return (NULL);
+    return (arr);
 }
