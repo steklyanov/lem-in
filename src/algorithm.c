@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 16:29:00 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/06 17:54:20 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/07 14:04:09 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,9 @@
 
 int     ft_mod_64(int numb)
 {
-    int position;
-
-    position = 0;
     if (numb >= 64)
-    {
-        position = numb - (64 * (int)(numb / 64));
-        ft_printf("  %d   ", position); 
-    }
-    else
-        return (numb);
-    return (position);
+        return (numb - (64 * (int)(numb / 64)));
+    return (numb);
 }
 
 int     ft_div_64(int numb)
@@ -34,7 +26,7 @@ int     ft_div_64(int numb)
 
 int     room_status(long long *rooms, int room_nbr)
 {
-    if ((rooms[ft_div_64(room_nbr)] & (1 << ft_mod_64(room_nbr))) == 0)
+    if ((rooms[ft_div_64(room_nbr)] & (1 << (64 - ft_mod_64(room_nbr)))) == 0)
         return (0);
     return (1);
 }
