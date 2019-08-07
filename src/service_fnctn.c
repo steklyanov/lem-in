@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 14:45:58 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/07 13:50:40 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/07 14:21:24 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void    print_long_int(long long num)
     ft_printf("\n");
 }
 
-
+/* use for initialize array of rooms status */
 long long   *init_long_arr()
 {
     long long *arr;

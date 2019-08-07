@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 12:55:54 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/07 13:17:04 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/07 14:12:42 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ int     ft_mod_64(int numb);
 int     ft_div_64(int numb);
 int     room_status(long long *rooms, int room_nbr);
 long long   *init_long_arr();
+long long    set_bit(long long nmbr, int bit);
 
 #endif
