@@ -6,12 +6,13 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 14:45:58 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/11 16:47:59 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/11 18:30:21 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/lemin.h"
 
+/* Return len of NULL terminated array of chars. */
 int     get_array_len(char **array)
 {
 	int index;
@@ -22,6 +23,7 @@ int     get_array_len(char **array)
 	return(index);
 }
 
+/* Free NULL terminated array of chars. */
 void	free_str_arr(char **array)
 {
 	int	index;
@@ -32,4 +34,20 @@ void	free_str_arr(char **array)
 		free(array[index]);
 		index++;
 	}
+}
+
+/* Allocate memory for farm structure. */
+t_farm	*allocate_farm_memory()
+{
+	t_farm	*farm;
+
+	if (!(farm = (t_farm*)malloc(sizeof(t_farm))))
+		return (NULL);
+	if (!(farm->room = (t_room*)malloc(sizeof(t_room))))
+		return (NULL);
+	farm->room = NULL;
+	farm->rooms_amount = 0;
+	farm->ant_amount = 0;
+	return (farm);
+	
 }
