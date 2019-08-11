@@ -1,35 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   service_fnctn.c                                    :+:      :+:    :+:   */
+/*   validation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/06 14:45:58 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/11 16:47:59 by mmraz            ###   ########.fr       */
+/*   Created: 2019/08/11 16:15:39 by mmraz             #+#    #+#             */
+/*   Updated: 2019/08/11 17:18:04 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/lemin.h"
 
-int     get_array_len(char **array)
+/*Check name, coord and status(start, end). Fill room, or return 0 */
+int			validate_room(char *line, t_farm *farm)
 {
-	int index;
+	char	**elements;
+	int		index;
 
 	index = 0;
-	while(array[index++])
-		;
-	return(index);
+	elements = ft_strsplitspaces(line);
+	if (get_array_len(elements) == 3)
+	{
+
+	}
+	else
+	{
+		free_str_arr(elements);
+		return (0);
+	}
+	
 }
 
-void	free_str_arr(char **array)
+int			validate_edges(char *line, t_farm *farm)
 {
-	int	index;
 
-	index = 0;
-	while(array[index])
-	{
-		free(array[index]);
-		index++;
-	}
+}
+
+int			get_ants_amount(char *line, t_farm *farm)
+{
+
+}
+
+
+int			get_comment_data(char *line, t_farm *farm)
+{
+
 }

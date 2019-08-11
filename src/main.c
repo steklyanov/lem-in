@@ -6,48 +6,67 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 12:55:52 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/11 14:46:55 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/11 17:24:10 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/lemin.h"
 
-
-void		validate_rooms()
+/* Return type of str: room(1), edge(2), comment(3), ant amount(0), error(-1)*/
+/* Also check for right order of commands, forbidden "L" symbol*/
+int			get_operation_numbr(char *line, int op)
 {
-
+	if (line[0] = "L")
+		return (-1);
+	else if (op == -1)
+		return (0);
+	else if (line[0] == '#')
+		return (3);
+	else if (ft_strchr("-", line) && (op != -1))
+		return (2);
+	if (op == 0 || op == 1)
+		return (1);
+	else
+		return (-1);
 }
 
-int			get_operation_numbr(char *line, int operation)
+/* Type of operation: edge(2), comment(3), room(1) or ant amount(-1) */
+int		main_validation_fnctn(char *line, t_farm *farm, int operation)
 {
+	int	result;
 
+	if (operation == 1)
+		result = validate_room(line, farm);
+	else if (operation == 2)
+		result =validate_edges(line, farm);
+	else if (operation == 0)
+		result = get_ants_amount(line, farm);
+	else if (operation = 3)
+		result = get_comment_data(line, farm);
+	else
+		return (operation);
+	return (result);
 }
 
 /* takes **argv and turns it into a t_farm, */
-/* in case of a error return 0, succes 1 */
+/* in case of a error farm->rooms_amount = 0, succes =  1 */
 t_farm		*create_farm(char **argv, t_farm *farm)
 {
 	char	*line;
 	int		operation;
 
-	operation = 0;
+	operation = -1;
 	while(get_next_line(0, &line) > 0)
 	{
 		operation = get_operation_nmbr(line, operation);
-		if (operation == 1)
-			validate_room(line, farm);
-		else if (operation == 2)
-			validate_edges(line, farm);
-		else if (operation == 0)
-			get_ants_amount(line);
-		else
-			break;
+		if (!main_validation_fnctn(line, farm, operation))
 	}
 	operation < 0 ? farm->rooms_amount = 0 :ft_printf("");
 	// TODO all necessary frees, t_farm, line
 	return (farm);
 }
 
+/* ENTRY POINT FOR APLICATION */
 int		main(int argc, char **argv)
 {
 	t_farm	*farm;
