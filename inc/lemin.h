@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 12:55:54 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/07 14:12:42 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/11 13:58:44 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,34 @@
 # include <unistd.h>
 # include <fcntl.h>
 
-void    print_long_int(long long num);
-int     ft_mod_64(int numb);
-int     ft_div_64(int numb);
-int     room_status(long long *rooms, int room_nbr);
-long long   *init_long_arr();
-long long    set_bit(long long nmbr, int bit);
+typedef struct s_farm	t_farm;
+typedef struct s_room	t_room;
+
+/* main room structure  */
+struct      s_room
+{
+	char    *name;
+	int     is_start;
+	int     is_finish;
+	int     blame;
+	int     res_3;
+	int     res_4;
+};
+
+/* main graph structure */
+struct      s_farm
+{
+	t_room  room;
+	t_farm  *next;
+};
+
+/* structure for writing graph edges  */
+typedef struct      s_conn
+{
+	t_room	        room;
+	struct s_conn	*next;
+}                   t_conn;
+
+
 
 #endif
