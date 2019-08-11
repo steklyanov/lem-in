@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 12:55:54 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/11 18:23:49 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/11 19:19:13 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,5 @@ int			validate_room(char *line, t_farm *farm);
 int			validate_edges(char *line, t_farm *farm);
 int			get_ants_amount(char *line, t_farm *farm);
 int			get_comment_data(char *line, t_farm *farm);
-
 
 #endif
