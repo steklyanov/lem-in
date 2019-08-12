@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 12:55:54 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/11 19:19:13 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/12 14:44:22 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,20 @@ struct      s_farm
 int			get_array_len(char **array);
 void		free_str_arr(char **array);
 t_farm		*allocate_farm_memory();
+void		print_farm(t_farm *farm);
 
 /* validation, memory allocation, farm filling */
-t_farm		*create_farm(char **argv, t_farm *farm);
+t_farm		*create_farm(t_farm *farm);
 int			main_validation_fnctn(char *line, t_farm *farm, int operation);
-int			get_operation_numbr(char *line, int op);
+int			get_operation_nmbr(char *line, int op);
 int			validate_room(char *line, t_farm *farm);
 int			validate_edges(char *line, t_farm *farm);
 int			get_ants_amount(char *line, t_farm *farm);
 int			get_comment_data(char *line, t_farm *farm);
+
+/* list operations */
+int			check_name(char *name, t_farm *farm);
+int			check_coord(int x, int y, t_farm *farm);
+t_room		*new_room(char **argv, t_farm *farm);
 
 #endif

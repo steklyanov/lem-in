@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 16:15:39 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/11 17:18:04 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/12 14:34:53 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,30 +20,27 @@ int			validate_room(char *line, t_farm *farm)
 
 	index = 0;
 	elements = ft_strsplitspaces(line);
-	if (get_array_len(elements) == 3)
+	if (get_array_len(elements) == 3 && check_name(elements[0], farm))
 	{
-
+		new_room(elements, farm);
+		index = 1;
 	}
-	else
-	{
-		free_str_arr(elements);
-		return (0);
-	}
-	
+	free_str_arr(elements);
+	return (index);
 }
 
 int			validate_edges(char *line, t_farm *farm)
 {
-
+	return(1);
 }
 
 int			get_ants_amount(char *line, t_farm *farm)
 {
-
+	return(1);
 }
 
 
 int			get_comment_data(char *line, t_farm *farm)
 {
-
+	return(1);
 }

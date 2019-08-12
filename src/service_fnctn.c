@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 14:45:58 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/11 19:00:58 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/12 14:44:09 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,13 @@ t_farm	*allocate_farm_memory()
 		return (NULL);
 	farm->rooms_amount = 0;
 	farm->ant_amount = 0;
-	if (!(farm->room = (t_room*)malloc(sizeof(t_room))))
-		return (NULL);
+	// if (!(farm->room = (t_room*)malloc(sizeof(t_room))))
+	// 	return (NULL);
 	farm->room = NULL;
 	return (farm);
+}
+
+void	print_farm(t_farm *farm)
+{
+	ft_printf("%d", farm->ant_amount);
 }

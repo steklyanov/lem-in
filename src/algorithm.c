@@ -6,13 +6,13 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 16:29:00 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/09 17:13:47 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/12 14:35:54 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/lemin.h"
 
-int		count_rooms(char **argv)
-{
-
-}
+// int		count_rooms(char **argv)
+// {
+//     return (1);
+// }

@@ -1,13 +1,13 @@
 NAME = lem_in
 CC = gcc
-FLAGS = -Wall -Werror -Wextra
+FLAGS =
 
 LIBFT_DIR = ./libft
 SRC_DIR = ./src
 INC_DIR = ./inc
 OBJ_DIR = ./obj
 
-SRC		=	room_lst_fnctns.c algorithm.c service_fnctn.c main.c
+SRC		=	validation.c room_lst_fnctns.c algorithm.c service_fnctn.c main.c
 
 OBJS = $(addprefix $(OBJ_DIR)/,$(SRC:%.c=%.o))
 LIBFT = $(LIBFT_DIR)/libft.a
@@ -23,7 +23,7 @@ $(LIBFT):
 
 $(NAME): $(OBJ_DIR) $(LIBFT) $(OBJS)
 	@$(CC) $(FLAGS) -o $(NAME) $(OBJS) -L $(LIBFT_DIR) -lft
-	# @./lem_in < testfile
+	@./lem_in < testfile
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@$(CC) $(FLAGS) -c $< -I$(INC_DIR) -I$(LIBFT_H) -o $@
