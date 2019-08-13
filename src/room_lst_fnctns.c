@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 18:31:24 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/13 19:54:24 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/13 21:09:31 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,19 @@
 
 int		check_name(char *name, t_farm *farm)
 {
+	t_room	*tmp;
+
+	if (farm->room == NULL)
+		return (1);
+	tmp = farm->room;
+	while (tmp)
+	{
+		ft_printf("1 = %s\n", name);
+		ft_printf("1 = %s\n", tmp->name);
+		if (tmp->name && ft_strcmp(name, tmp->name) == 0)
+			return (0);
+		tmp = tmp->next;
+	}
 	return (1);
 }
 
@@ -25,7 +38,6 @@ int		check_coord(int x, int y, t_farm *farm)
 
 t_room	*allocate_room()
 {
-	ft_printf("ALLOCATE ROOM FNCTN\n");
 	t_room	*new;
 
 	if (!(new = (t_room*)malloc(sizeof(t_room))))
@@ -35,13 +47,15 @@ t_room	*allocate_room()
 	return (new);
 }
 
+/* Сreates a new room, fills the name. In case there is an unnamed room */
+/*  with a start or finish mark, it simply fills in the values. */
 t_room	*new_room(char **argv, t_farm *farm)
 {
-	ft_printf("NEW ROOM FNCTN\n");
 	t_room	*new;
 
 	if (farm->room != NULL &&
-	((farm->room->is_start == 1 || farm->room->is_finish == 1) && farm->room->name == NULL))
+	((farm->room->is_start == 1 || farm->room->is_finish == 1)
+	&& farm->room->name == NULL))
 	{
 		farm->room->blame = 0;
 		farm->room->name = ft_strdup(argv[0]);

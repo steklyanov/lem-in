@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 16:15:39 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/13 19:22:24 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/13 21:09:15 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ int			get_comment_data(char *line, t_farm *farm)
 		new = allocate_room();
 		new->is_finish = 1;
 		new->is_start = 0;
-		farm->room = new;
 		new->next = farm->room;
 		farm->room = new;
 	}
