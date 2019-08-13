@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 12:55:54 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/13 16:32:25 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/13 18:41:17 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,6 @@ int			get_comment_data(char *line, t_farm *farm);
 int			check_name(char *name, t_farm *farm);
 int			check_coord(int x, int y, t_farm *farm);
 t_room		*new_room(char **argv, t_farm *farm);
+t_room		*allocate_room();
 
 #endif

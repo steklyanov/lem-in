@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 12:55:52 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/13 16:32:37 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/13 19:25:55 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int			get_operation_nmbr(char *line, int op)
 		return (3);
 	else if (ft_strchr(line, '-') > 0 && (op != -1))
 		return (2);
-	if (op == 0 || op == 1)
+	if (op == 0 || op == 1 || op == 3)
 		return (1);
 	else
 		return (-1);
@@ -67,9 +67,10 @@ t_farm		*create_farm(t_farm *farm)
 			ft_printf("shit\n");
 			break;
 		}
+		free(line);
 	}
 	operation < 0 ? farm->rooms_amount = 0 :ft_printf("");
-	// TODO all necessary frees, t_farm, line
+	// TODO all necessary frees(t_farm)
 	return (farm);
 }
 
@@ -80,7 +81,6 @@ int		main(int argc, char **argv)
 
 	farm = allocate_farm_memory();
 	farm = create_farm(farm);
-	// if (farm->rooms_amount > 0)
 	print_farm(farm);
 	return (0);
 }

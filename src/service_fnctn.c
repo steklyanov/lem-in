@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 14:45:58 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/13 16:32:26 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/13 19:28:19 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,11 @@ t_farm	*allocate_farm_memory()
 		return (NULL);
 	farm->rooms_amount = 0;
 	farm->ant_amount = 0;
-	// if (!(farm->room = (t_room*)malloc(sizeof(t_room))))
-	// 	return (NULL);
 	farm->room = NULL;
 	return (farm);
 }
 
+/* Print all rooms in list and all connections with other rooms */
 void	print_farm(t_farm *farm)
 {
 	t_room	*tmp;
