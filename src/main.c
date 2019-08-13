@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 12:55:52 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/12 14:47:27 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/13 16:32:37 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int		main_validation_fnctn(char *line, t_farm *farm, int operation)
 /* in case of a error farm->rooms_amount = 0, succes =  1 */
 t_farm		*create_farm(t_farm *farm)
 {
+	ft_printf("create farm fnctn\n");
 	char	*line;
 	int		operation;
 
@@ -59,9 +60,11 @@ t_farm		*create_farm(t_farm *farm)
 	while(get_next_line(0, &line) > 0)
 	{
 		operation = get_operation_nmbr(line, operation);
+		ft_printf("operation = %d\n", operation);
 		if (!main_validation_fnctn(line, farm, operation))
 		{
 			operation = -1;
+			ft_printf("shit\n");
 			break;
 		}
 	}
@@ -76,14 +79,8 @@ int		main(int argc, char **argv)
 	t_farm	*farm;
 
 	farm = allocate_farm_memory();
-	argv[0][0] = '.' ? ft_printf(""): ft_printf("");
-	if (argc < 2)
-	{
-		farm = create_farm(farm);
-		if (farm->rooms_amount > 0)
-			print_farm(farm);
-	}
-	else
-		ft_printf("Fu**ing usage");
+	farm = create_farm(farm);
+	// if (farm->rooms_amount > 0)
+	print_farm(farm);
 	return (0);
 }

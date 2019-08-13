@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 18:31:24 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/12 14:45:47 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/13 16:32:31 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ t_room	*new_room(char **argv, t_farm *farm)
 		return (NULL);
 	if (!(new->connections = (t_conn*)malloc(sizeof(t_conn))))
 		return (NULL);
-	new->name = ft_strnew(ft_strlen(argv[1]));
+	new->name = ft_strdup(argv[0]);
 	new->is_start = 0;
 	new->is_finish = 0;
 	new->blame = 0;
