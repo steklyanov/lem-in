@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 16:15:39 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/13 21:09:15 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/13 21:14:30 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ int			get_ants_amount(char *line, t_farm *farm)
 	return(amount);
 }
 
-
+/* In the case of a comment about to start or finish, */
+/*  creates a room with a variable, the name remains NULL */
 int			get_comment_data(char *line, t_farm *farm)
 {
 	ft_printf("GET COMMENT DATA\n");

@@ -6,13 +6,13 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 18:31:24 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/13 21:09:31 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/13 21:12:23 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/lemin.h"
 
-
+/*  Checking room name for unique value. */
 int		check_name(char *name, t_farm *farm)
 {
 	t_room	*tmp;
@@ -22,8 +22,6 @@ int		check_name(char *name, t_farm *farm)
 	tmp = farm->room;
 	while (tmp)
 	{
-		ft_printf("1 = %s\n", name);
-		ft_printf("1 = %s\n", tmp->name);
 		if (tmp->name && ft_strcmp(name, tmp->name) == 0)
 			return (0);
 		tmp = tmp->next;
@@ -36,6 +34,7 @@ int		check_coord(int x, int y, t_farm *farm)
 	return (1);
 }
 
+/*  Allocate memory for t_room structure. */
 t_room	*allocate_room()
 {
 	t_room	*new;
