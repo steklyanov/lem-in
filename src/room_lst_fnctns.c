@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 18:31:24 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/13 21:12:23 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/13 21:57:23 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,15 @@ int		check_name(char *name, t_farm *farm)
 		tmp = tmp->next;
 	}
 	return (1);
+}
+
+
+t_conn	*allocate_connection()
+{
+	t_conn	*new;
+
+	new->room = NULL;
+	new->next = NULL;
 }
 
 int		check_coord(int x, int y, t_farm *farm)

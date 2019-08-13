@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 16:15:39 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/13 21:14:30 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/13 21:57:25 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,21 @@ int			validate_room(char *line, t_farm *farm)
 
 int			validate_edges(char *line, t_farm *farm)
 {
-	return(1);
+	ft_printf("VALIDATE EDGES FNCTN\n");
+	char	**elements;
+	int		index;
+
+	index = 0;
+	elements = ft_strsplit(line, '-');
+	if (get_array_len(elements) == 2 &&
+	check_name(elements[0], farm) == 0 && check_name(elements[1], farm) == 0)
+	{
+		
+		return(1);
+	}
+		
+	return (0);
+	
 }
 
 /* Just atoi arg, but if necessary can implement check for trash symb */

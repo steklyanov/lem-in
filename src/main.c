@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 12:55:52 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/13 20:57:44 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/13 21:35:17 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ int			get_operation_nmbr(char *line, int op)
 		return (0);
 	else if (line[0] == '#')
 		return (3);
-	else if (ft_strchr(line, '-') > 0 && (op != -1))
+	else if (ft_strchr(line, '-') != NULL && (op != -1))
 		return (2);
-	if (op == 0 || op == 1 || op == 3)
+	else if (op == 0 || op == 1 || op == 3)
 		return (1);
 	else
 		return (-1);
