@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 12:55:54 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/14 17:35:27 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/14 19:10:50 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@
 typedef struct s_farm	t_farm;
 typedef struct s_room	t_room;
 
-/* structure for writing graph edges  */
+/* structure for writing graph edges(list)  */
 typedef struct      s_conn
 {
 	t_room          *room;
 	struct s_conn	*next;
 }                   t_conn;
 
-/* main room structure  */
+/* main room structure(list)  */
 struct      s_room
 {
 	char    *name;
@@ -71,5 +71,6 @@ t_room		*new_room(char **argv, t_farm *farm);
 t_room		*allocate_room();
 t_conn		*allocate_connection();
 t_farm		*allocate_farm_memory();
+t_room		*return_room_by_name(t_farm *farm, char *name);
 
 #endif

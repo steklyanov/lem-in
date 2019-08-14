@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 14:45:58 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/14 17:40:38 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/14 19:05:19 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,19 +36,6 @@ void	free_str_arr(char **array)
 	}
 }
 
-/* Allocate memory for farm structure. */
-t_farm	*allocate_farm_memory()
-{
-	t_farm	*farm;
-
-	if (!(farm = (t_farm*)malloc(sizeof(t_farm))))
-		return (NULL);
-	farm->rooms_amount = 0;
-	farm->ant_amount = 0;
-	farm->room = NULL;
-	return (farm);
-}
-
 /* Print all rooms in list and all connections with other rooms */
 void	print_farm(t_farm *farm)
 {
@@ -60,7 +47,7 @@ void	print_farm(t_farm *farm)
 	tmp = farm->room;
 	while(tmp)
 	{
-		ft_printf("________________________\n", farm->ant_amount);
+		ft_printf("________________________\n");
 		ft_printf("name = %s\n", tmp->name);
 		ft_printf("is_start = %d\n", tmp->is_start);
 		ft_printf("is_finish = %d\n", tmp->is_finish);
@@ -78,6 +65,5 @@ void	print_farm(t_farm *farm)
 			ft_printf("\n");
 		}
 		tmp = tmp->next;
-		ft_printf("________________________\n", farm->ant_amount);
 	}
 }

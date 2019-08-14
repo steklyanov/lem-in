@@ -7,7 +7,8 @@ SRC_DIR = ./src
 INC_DIR = ./inc
 OBJ_DIR = ./obj
 
-SRC		=	validation.c room_lst_fnctns.c algorithm.c service_fnctn.c main.c
+SRC		=	edges_fnctns.c memory_alloc.c validation.c room_fnctns.c \
+			algorithm.c service_fnctn.c main.c
 
 OBJS = $(addprefix $(OBJ_DIR)/,$(SRC:%.c=%.o))
 LIBFT = $(LIBFT_DIR)/libft.a
