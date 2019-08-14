@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 16:15:39 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/13 21:57:25 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/14 17:15:20 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int			validate_room(char *line, t_farm *farm)
 	return (index);
 }
 
+/* Split str by '-' delimeter, check if name in room list, fill s_conn struct.*/
 int			validate_edges(char *line, t_farm *farm)
 {
 	ft_printf("VALIDATE EDGES FNCTN\n");
@@ -42,10 +43,10 @@ int			validate_edges(char *line, t_farm *farm)
 	if (get_array_len(elements) == 2 &&
 	check_name(elements[0], farm) == 0 && check_name(elements[1], farm) == 0)
 	{
-		
-		return(1);
+		if (fill_connections(elements[0], elements[1], farm) == 1)
+			return(1);
 	}
-		
+	free_str_arr(elements);
 	return (0);
 	
 }

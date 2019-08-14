@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 18:31:24 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/13 21:57:23 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/14 17:39:52 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ t_conn	*allocate_connection()
 
 	new->room = NULL;
 	new->next = NULL;
+	return (new);
 }
 
 int		check_coord(int x, int y, t_farm *farm)
@@ -79,4 +80,47 @@ t_room	*new_room(char **argv, t_farm *farm)
 	new->is_start = 0;
 	new->is_finish = 0;
 	return (new);
+}
+
+
+int     fill_connections(char *edge_1, char *edge_2, t_farm *farm)
+{
+	ft_printf("FILL connection FNCTN\n");
+	t_room	*tmp1;
+	t_room	*tmp2;
+	t_conn	*connection1;
+	t_conn	*connection2;
+
+	if (farm->room == NULL)
+		return (1);
+	tmp1 = farm->room;
+	tmp2 = farm->room;
+	while (tmp1)
+	{
+		if (tmp1->name && ft_strcmp(edge_1, tmp1->name) == 0)
+			break;
+		tmp1 = tmp1->next;
+	}
+	while (tmp2)
+	{
+		if (tmp2->name && ft_strcmp(edge_2, tmp2->name) == 0)
+			break;
+		tmp2 = tmp2->next;
+	}
+	ft_printf("edge1 = %s\n", edge_1);
+	ft_printf("edge2 = %s\n", edge_2);
+	if (!(connection1 = (t_conn*)malloc(sizeof(t_conn))))
+		return (0);
+	if (!(connection2 = (t_conn*)malloc(sizeof(t_conn))))
+		return (0);
+	connection1->next = tmp1->connections;
+	connection1->room = tmp2;
+	tmp1->connections = connection1;
+
+
+	connection2->next = tmp2->connections;
+	connection2->room = tmp1;
+	tmp2->connections = connection2;
+
+	return (1);
 }

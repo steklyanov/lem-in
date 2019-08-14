@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 14:45:58 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/13 19:28:19 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/14 17:40:38 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,17 +53,31 @@ t_farm	*allocate_farm_memory()
 void	print_farm(t_farm *farm)
 {
 	t_room	*tmp;
+	t_conn	*tmp_conn;
 
 	ft_printf("ant_amount = %d\n", farm->ant_amount);
 	ft_printf("rooms amount = %d\n", farm->rooms_amount);
 	tmp = farm->room;
 	while(tmp)
 	{
+		ft_printf("________________________\n", farm->ant_amount);
 		ft_printf("name = %s\n", tmp->name);
 		ft_printf("is_start = %d\n", tmp->is_start);
 		ft_printf("is_finish = %d\n", tmp->is_finish);
 		ft_printf("blame = %d\n", tmp->blame);
 		ft_printf("\n");
+		if (tmp->connections)
+		{
+			tmp_conn = tmp->connections;
+			ft_printf("| connect to rooms: |\n");
+			while(tmp_conn)
+			{
+				ft_printf("%s ", tmp_conn->room->name);
+				tmp_conn = tmp_conn->next;
+			}
+			ft_printf("\n");
+		}
 		tmp = tmp->next;
+		ft_printf("________________________\n", farm->ant_amount);
 	}
 }
