@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 12:55:54 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/14 19:10:50 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/16 14:27:17 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ typedef struct s_farm	t_farm;
 typedef struct s_room	t_room;
 
 /* structure for writing graph edges(list)  */
-typedef struct      s_conn
+typedef struct	s_conn
 {
 	t_room          *room;
 	struct s_conn	*next;
-}                   t_conn;
+}				t_conn;
 
 /* main room structure(list)  */
-struct      s_room
+struct      	s_room
 {
 	char    *name;
 	int     is_start;
@@ -42,12 +42,23 @@ struct      s_room
 };
 
 /* main graph structure */
-struct      s_farm
+struct      	s_farm
 {
 	t_room  *room;
     int     rooms_amount;
     int     ant_amount;
 };
+
+/* structure for sending ants according to decision */
+typedef struct	s_solution
+{
+	int		solution_amount;
+	int		biggest_diff;
+	t_conn	**solutions_arr;
+	int		*power_of_sol;
+}				t_solution;
+
+
 
 /* service functions */
 int			get_array_len(char **array);
@@ -72,5 +83,8 @@ t_room		*allocate_room();
 t_conn		*allocate_connection();
 t_farm		*allocate_farm_memory();
 t_room		*return_room_by_name(t_farm *farm, char *name);
+
+/* ants streaming */
+void		stream_ants(t_farm *farm, t_conn **connections);
 
 #endif

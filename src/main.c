@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 12:55:52 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/14 19:06:33 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/14 19:25:30 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int		main(int argc, char **argv)
 	farm = create_farm(farm);
 	if (farm->rooms_amount == 0)
 		ft_printf("Error\n");
+	
 	print_farm(farm);
 	return (0);
 }
