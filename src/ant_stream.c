@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/14 19:16:45 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/19 18:18:49 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/19 19:22:50 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void    stream_ants(t_farm *farm, t_solution *solution)
 			move_ants(antstream);
 		new_ant(solution->solutions_arr[index], antstream);
 	}
-	print_step(antstream);
+	print_ant(antstream);
 }
 
 void	move_ants(t_antstream *antstream)
