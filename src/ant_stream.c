@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/14 19:16:45 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/19 19:22:50 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/19 20:02:21 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	new_ant(t_conn *solution, t_antstream *antstream)
 	new->next = antstream;
 	antstream = new;
 }
-/* TODO: Implement function to clean elem in caser of end of the route */
+/* TODO: Implement function to clean elem in case of end of the route */
 void	print_ant(t_antstream *antstream)
 {
 	while(antstream != NULL)

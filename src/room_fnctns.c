@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/14 19:00:04 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/19 18:36:17 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/19 20:02:23 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int		check_name(char *name, t_farm *farm)
 {
 	t_room	*tmp;
 
-	if (farm == NULL)
+	if (farm->room == NULL)
 		return (1);
 	tmp = farm->room;
 	while (tmp)
