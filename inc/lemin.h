@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 12:55:54 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/19 16:09:57 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/19 18:45:30 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ typedef struct s_room	t_room;
 typedef struct	s_conn
 {
 	t_room          *room;
+	int				connect;
+	int				number_room;
 	struct s_conn	*next;
 }				t_conn;
 
