@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 16:15:39 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/14 19:09:52 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/19 18:38:35 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,14 +70,16 @@ int			get_comment_data(char *line, t_farm *farm)
 		new = allocate_room();
 		new->is_start = 1;
 		new->is_finish = 0;
+		new->name = NULL;
 		new->next = farm->room;
 		farm->room = new;
 	}
-	else if (ft_strequ("##finish", line))
+	else if (ft_strequ("##end", line))
 	{
 		new = allocate_room();
 		new->is_finish = 1;
 		new->is_start = 0;
+		new->name = NULL;
 		new->next = farm->room;
 		farm->room = new;
 	}

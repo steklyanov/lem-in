@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/14 18:58:10 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/19 16:10:07 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/19 18:23:44 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,6 @@ t_antstream		*allocate_antstream()
 		return (NULL);
 	new->next = NULL;
 	new->number = 0;
+
+	return (new);
 }

@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/14 19:16:45 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/19 16:22:40 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/19 18:18:49 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void		get_biggest_diff(t_solution *solution)
 	solution->power_of_sol[counter] = 0;
 }
 
-
+/* Main function to stream ants to the routes and print steps */
 void    stream_ants(t_farm *farm, t_solution *solution)
 {
 	t_antstream *antstream;
@@ -61,6 +61,7 @@ void	move_ants(t_antstream *antstream)
 	}
 }
 
+/* Create new ant and add it to the end of the list */
 void	new_ant(t_conn *solution, t_antstream *antstream)
 {
 	t_antstream *new;
@@ -75,13 +76,14 @@ void	new_ant(t_conn *solution, t_antstream *antstream)
 	new->next = antstream;
 	antstream = new;
 }
-
+/* TODO: Implement function to clean elem in caser of end of the route */
 void	print_ant(t_antstream *antstream)
 {
 	while(antstream != NULL)
 	{
-		ft_printf("L%d-%s", antstream->number,
-		return_room_name_by_nmbr(antstream->solution, antstream->room_number));
+		if (return_room_name_by_nmbr(antstream->solution, antstream->room_number))
+			ft_printf("L%d-%s", antstream->number,
+			return_room_name_by_nmbr(antstream->solution, antstream->room_number));
 		antstream->room_number++;
 		antstream = antstream->next;
 	}
@@ -91,5 +93,7 @@ char	*return_room_name_by_nmbr(t_conn *list, int nmbr)
 {
 	while(nmbr-- && list)
 		list = list->next;
-	return (list->room->name);
+	if (nmbr == 0) 
+		return (list->room->name);
+	return (NULL);
 }
