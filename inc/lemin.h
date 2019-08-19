@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 12:55:54 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/16 14:27:17 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/19 15:35:49 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,19 @@ typedef struct	s_solution
 {
 	int		solution_amount;
 	int		biggest_diff;
+	int		biggest_way;
 	t_conn	**solutions_arr;
-	int		*power_of_sol;
+	int		**power_of_sol;
 }				t_solution;
 
-
+/* collect data about current ant position */
+typedef struct			s_antstream
+{
+	int					number;
+	char				*room_name;
+	t_conn				*solution;
+	struct s_antstream	*next;
+}						t_antstream;
 
 /* service functions */
 int			get_array_len(char **array);
@@ -82,9 +90,11 @@ t_room		*new_room(char **argv, t_farm *farm);
 t_room		*allocate_room();
 t_conn		*allocate_connection();
 t_farm		*allocate_farm_memory();
+t_antstream	*allocate_antstream();
 t_room		*return_room_by_name(t_farm *farm, char *name);
 
 /* ants streaming */
-void		stream_ants(t_farm *farm, t_conn **connections);
+void		stream_ants(t_farm *farm, t_solution *solution);
+void		get_biggest_diff(t_solution *solution);
 
 #endif
