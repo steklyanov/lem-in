@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 12:55:54 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/19 15:35:49 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/19 16:09:57 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ typedef struct	s_solution
 typedef struct			s_antstream
 {
 	int					number;
-	char				*room_name;
+	int					room_number;
 	t_conn				*solution;
 	struct s_antstream	*next;
 }						t_antstream;

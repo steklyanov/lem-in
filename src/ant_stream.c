@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/14 19:16:45 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/19 15:38:36 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/19 16:22:40 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,20 @@ void    stream_ants(t_farm *farm, t_solution *solution)
 	while(index < solution->solution_amount &&
 	farm->ant_amount > solution->biggest_diff)
 	{
+		if (antstream)
+			move_ants(antstream);
 		new_ant(solution->solutions_arr[index], antstream);
 	}
 	print_step(antstream);
+}
+
+void	move_ants(t_antstream *antstream)
+{
+	while(antstream != NULL)
+	{
+		antstream->room_number++;
+		antstream = antstream->next;
+	}
 }
 
 void	new_ant(t_conn *solution, t_antstream *antstream)
@@ -56,9 +67,29 @@ void	new_ant(t_conn *solution, t_antstream *antstream)
 
 	new = allocate_antstream();
 	if (antstream)
-	{
 		new->number = antstream->number + 1;
+	else
+		new->number = 0;
+	new->solution = solution;
+	new->room_number = 0;
+	new->next = antstream;
+	antstream = new;
+}
+
+void	print_ant(t_antstream *antstream)
+{
+	while(antstream != NULL)
+	{
+		ft_printf("L%d-%s", antstream->number,
+		return_room_name_by_nmbr(antstream->solution, antstream->room_number));
+		antstream->room_number++;
+		antstream = antstream->next;
 	}
 }
 
-send_ants
+char	*return_room_name_by_nmbr(t_conn *list, int nmbr)
+{
+	while(nmbr-- && list)
+		list = list->next;
+	return (list->room->name);
+}

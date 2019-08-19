@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/14 18:58:10 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/14 19:06:56 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/19 16:10:07 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,16 @@ t_conn	*allocate_connection()
 	new->room = NULL;
 	new->next = NULL;
 	return (new);
+}
+
+t_antstream		*allocate_antstream()
+{
+	t_antstream	*new;
+
+	if (!(new = (t_antstream*)malloc(sizeof(t_antstream))))
+		return (NULL);
+	if (!(new->solution = (t_conn*)malloc(sizeof(t_conn))))
+		return (NULL);
+	new->next = NULL;
+	new->number = 0;
 }
