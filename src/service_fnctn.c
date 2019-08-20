@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 14:45:58 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/14 19:05:19 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/20 14:53:55 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	free_str_arr(char **array)
 		free(array[index]);
 		index++;
 	}
+	free(array);
 }
 
 /* Print all rooms in list and all connections with other rooms */
@@ -66,4 +67,33 @@ void	print_farm(t_farm *farm)
 		}
 		tmp = tmp->next;
 	}
+}
+
+
+void	free_farm(t_farm *farm)
+{
+	// void	ft_lstdel(t_list **alst, void (*del)(void*, size_t))
+	if (!farm)
+		return ;
+	free_room(farm->room);
+	free(farm);
+}
+
+void	free_room(t_room *room)
+{
+	if (!room)
+		return ;
+	free_room(room->next);
+	free_connections(room->connections);
+	free(room->name);
+	// free(room->next);
+	free(room);
+}
+
+void	free_connections(t_conn *connect)
+{
+	if (!connect)
+		return ;
+	free_connections(connect->next);
+	free(connect);
 }

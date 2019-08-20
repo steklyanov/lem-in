@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/14 19:03:03 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/14 19:09:51 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/20 14:29:17 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ int			validate_edges(char *line, t_farm *farm)
 	check_name(elements[0], farm) == 0 && check_name(elements[1], farm) == 0)
 	{
 		if (fill_connections(elements[0], elements[1], farm) == 1)
+		{
+			free_str_arr(elements);
 			return(1);
+		}
 	}
 	free_str_arr(elements);
 	return (0);

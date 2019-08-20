@@ -1,6 +1,6 @@
 NAME = lem_in
 CC = gcc
-FLAGS = 
+FLAGS = -g #-fsanitize=address
 
 LIBFT_DIR = ./libft
 SRC_DIR = ./src

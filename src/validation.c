@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 16:15:39 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/19 18:38:35 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/20 14:44:44 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,12 @@ int			get_ants_amount(char *line, t_farm *farm)
 int			get_comment_data(char *line, t_farm *farm)
 {
 	t_room	*new;
+	t_room	*tmp;
 
 	if (ft_strequ("##start", line))
 	{
 		new = allocate_room();
 		new->is_start = 1;
-		new->is_finish = 0;
-		new->name = NULL;
 		new->next = farm->room;
 		farm->room = new;
 	}
@@ -78,8 +77,6 @@ int			get_comment_data(char *line, t_farm *farm)
 	{
 		new = allocate_room();
 		new->is_finish = 1;
-		new->is_start = 0;
-		new->name = NULL;
 		new->next = farm->room;
 		farm->room = new;
 	}

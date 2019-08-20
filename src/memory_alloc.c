@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/14 18:58:10 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/19 18:23:44 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/20 14:47:27 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ t_room	*allocate_room()
 		return (NULL);
 	if (!(new->connections = (t_conn*)malloc(sizeof(t_conn))))
 		return (NULL);
+	ft_bzero(new, sizeof(t_room));
 	return (new);
 }
 

@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/14 19:00:04 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/19 20:02:23 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/20 14:45:21 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ int			validate_room(char *line, t_farm *farm)
 	elements = ft_strsplitspaces(line);
 	if (get_array_len(elements) == 3 && check_name(elements[0], farm))
 	{
-		farm->room = new_room(elements, farm);
+		// free(farm->room);
+		// farm->room = new_room(elements, farm);
+		new_room(elements, farm);
 		farm->rooms_amount++;
 		index = 1;
 	}
@@ -40,19 +42,14 @@ t_room	*new_room(char **argv, t_farm *farm)
 	((farm->room->is_start == 1 || farm->room->is_finish == 1)
 	&& farm->room->name == NULL))
 	{
-		farm->room->blame = 0;
 		farm->room->name = ft_strdup(argv[0]);
-		farm->room->connections = NULL;
 		return (farm->room);
 	}
 	if (!(new = allocate_room()))
 		return (NULL);
 	new->next = farm->room;
-	new->blame = 0;
 	new->name = ft_strdup(argv[0]);
-	new->connections = NULL;
-	new->is_start = 0;
-	new->is_finish = 0;
+	farm->room = new;
 	return (new);
 }
 

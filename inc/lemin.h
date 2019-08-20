@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 12:55:54 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/19 19:21:02 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/20 14:21:25 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,9 @@ typedef struct			s_antstream
 int			get_array_len(char **array);
 void		free_str_arr(char **array);
 void		print_farm(t_farm *farm);
+void		free_farm(t_farm *farm);
+void		free_room(t_room *room);
+void		free_connections(t_conn *connect);
 
 /* validation, memory allocation, farm filling */
 t_farm		*create_farm(t_farm *farm);
