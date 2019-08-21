@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 12:55:54 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/20 14:21:25 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/21 19:27:16 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 
 typedef struct s_farm	t_farm;
 typedef struct s_room	t_room;
+typedef struct s_solution	t_solution;
 
 /* structure for writing graph edges(list)  */
 typedef struct	s_conn
@@ -52,14 +53,14 @@ struct      	s_farm
 };
 
 /* structure for sending ants according to decision */
-typedef struct	s_solution
+struct	s_solution
 {
 	int		solution_amount;
 	int		biggest_diff;
 	int		biggest_way;
 	t_conn	**solutions_arr;
 	int		*power_of_sol;
-}				t_solution;
+};
 
 /* collect data about current ant position */
 typedef struct			s_antstream
@@ -96,6 +97,7 @@ t_room		*allocate_room();
 t_conn		*allocate_connection();
 t_farm		*allocate_farm_memory();
 t_antstream	*allocate_antstream();
+t_solution	*allocate_solution(int solution_amount);
 t_room		*return_room_by_name(t_farm *farm, char *name);
 
 /* ants streaming */
@@ -105,5 +107,12 @@ void		move_ants(t_antstream *antstream);
 void		new_ant(t_conn *solution, t_antstream *antstream);
 void		print_ant(t_antstream *antstream);
 char		*return_room_name_by_nmbr(t_conn *list, int nmbr);
+
+/* solution */
+void		main_solution_fnctn(t_farm *farm);
+int			find_quickest_way(t_room *room, t_solution *solution);
+int			solution_amount_counter(t_room *room);
+t_room 		*find_start(t_room *room);
+void		new_solution(t_conn *connections, t_solution *solution);
 
 #endif

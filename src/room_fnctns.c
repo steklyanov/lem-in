@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/14 19:00:04 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/20 14:45:21 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/21 19:20:47 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ int			validate_room(char *line, t_farm *farm)
 	elements = ft_strsplitspaces(line);
 	if (get_array_len(elements) == 3 && check_name(elements[0], farm))
 	{
-		// free(farm->room);
-		// farm->room = new_room(elements, farm);
 		new_room(elements, farm);
 		farm->rooms_amount++;
 		index = 1;
