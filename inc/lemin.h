@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 12:55:54 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/22 14:19:28 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/22 17:24:25 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ void		free_farm(t_farm *farm);
 void		free_room(t_room *room);
 void		free_connections(t_conn *connect);
 void		print_room(t_room *tmp);
+void		print_solution(t_solution *solution);
 
 /* validation, memory allocation, farm filling */
 t_farm		*create_farm(t_farm *farm);
@@ -111,9 +112,9 @@ char		*return_room_name_by_nmbr(t_conn *list, int nmbr);
 
 /* solution */
 void		main_solution_fnctn(t_farm *farm);
-int			find_quickest_way(t_room *room, t_solution *solution);
+int			find_quickest_way(t_room *room, t_solution *solution, int iter);
 int			solution_amount_counter(t_room *room);
 t_room 		*find_start(t_room *room);
-void		new_solution(t_conn *connections, t_solution *solution);
+void		new_solution(t_conn *connections, t_solution *solution, int iter);
 
 #endif

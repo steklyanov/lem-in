@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 19:27:08 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/22 15:06:35 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/22 18:29:31 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,42 +28,36 @@ void    main_solution_fnctn(t_farm *farm)
 {
 	t_solution	*solution;
 	t_room      *start;
+	int			iteration;
 
+	iteration = 1;
 	solution = allocate_solution(solution_amount_counter(farm->room));
 	start = find_start(farm->room);
 	// print_farm(farm);
-	find_quickest_way(start, solution);
+	find_quickest_way(start, solution, iteration);
 }
 
 /* recursively traverses all paths and finds the shortest path to the finish */
-int    find_quickest_way(t_room *room, t_solution *solution)
+int    find_quickest_way(t_room *room, t_solution *solution, int iter)
 {
-	ft_printf("FIND QUCKEST WAY\n");
 	t_conn  *tmp;
 
+	solution->power_of_sol[iter - 1] = 0;
 	if (room && room->connections && room->connections->room != NULL)
-	{
-		ft_printf("here1\n");
 		tmp = room->connections;
-	}
 	else
-	{
-		ft_printf("here\n");
 		return (0);
-	}
-	ft_printf("%s\n", tmp->room->name);
 	if (room->is_finish == 1)
 		return (1);
 	if (room->blame == 0)
-		room->blame = 1;
+		room->blame = iter;
 	else
 		return (0);
 	while(tmp)
 	{
-		ft_printf("Inside while\n");
-		if (find_quickest_way(tmp->room, solution) == 1)
+		if (find_quickest_way(tmp->room, solution, iter) == 1)
 		{
-			new_solution(tmp, solution);
+			new_solution(tmp, solution, iter);
 			return (1);
 		}
 		tmp = tmp->next;
@@ -92,8 +86,14 @@ int     solution_amount_counter(t_room *room)
 	return(finish);
 }
 
-void	new_solution(t_conn *connections, t_solution *solution)
+void	new_solution(t_conn *connections, t_solution *solution, int iter)
 {
-	ft_printf("req release\n");
-	ft_printf("%s\n", connections->room->name);
+	t_conn	*new;
+
+	new = connections;
+	solution->power_of_sol[iter - 1]++;
+	new->next = solution->solutions_arr[iter - 1];
+	solution->solutions_arr[iter - 1] = new;
+	print_solution(solution);
+	// get_biggest_diff(solution);
 }
