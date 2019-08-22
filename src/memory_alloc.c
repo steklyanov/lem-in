@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/14 18:58:10 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/21 19:28:57 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/21 19:49:51 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,11 @@ t_antstream		*allocate_antstream()
 t_solution		*allocate_solution(int sol_amount)
 {
 	t_solution	*new;
-	ft_printf("down before\n");
 
 	if (!(new = (t_solution*)malloc(sizeof(t_solution))))
 		return (NULL);
 	if (!(new->solutions_arr = (t_conn**)malloc(sizeof(t_conn) * sol_amount)))
 		return (NULL);
 	new->solution_amount = sol_amount;
-	ft_printf("down before\n");
 	return (new);
 }

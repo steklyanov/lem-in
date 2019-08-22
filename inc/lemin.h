@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 12:55:54 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/21 19:27:16 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/22 14:19:28 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ void		print_farm(t_farm *farm);
 void		free_farm(t_farm *farm);
 void		free_room(t_room *room);
 void		free_connections(t_conn *connect);
+void		print_room(t_room *tmp);
 
 /* validation, memory allocation, farm filling */
 t_farm		*create_farm(t_farm *farm);

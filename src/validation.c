@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 16:15:39 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/20 14:44:44 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/22 13:36:51 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,14 +66,15 @@ int			get_comment_data(char *line, t_farm *farm)
 	t_room	*new;
 	t_room	*tmp;
 
-	if (ft_strequ("##start", line))
+	if (ft_strequ("#start", line))
 	{
+		ft_printf("IN START FNCTN\n");
 		new = allocate_room();
 		new->is_start = 1;
 		new->next = farm->room;
 		farm->room = new;
 	}
-	else if (ft_strequ("##end", line))
+	else if (ft_strequ("#end", line))
 	{
 		new = allocate_room();
 		new->is_finish = 1;

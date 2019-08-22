@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 12:55:52 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/21 19:20:48 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/22 14:34:08 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ int		main(int argc, char **argv)
 		ft_printf("Error\n");
 	else
 	{
-		main_solution_fnctn(farm);
 		print_farm(farm);
+		main_solution_fnctn(farm);
 	}
 	free_farm(farm);
 	return (0);

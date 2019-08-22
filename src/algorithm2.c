@@ -6,7 +6,7 @@
 /*   By: mmraz <mmraz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 19:27:08 by mmraz             #+#    #+#             */
-/*   Updated: 2019/08/21 19:30:44 by mmraz            ###   ########.fr       */
+/*   Updated: 2019/08/22 15:06:35 by mmraz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ t_room  *find_start(t_room *room)
 
 void    main_solution_fnctn(t_farm *farm)
 {
-	ft_printf("MAIN SOLUTION FNCTN\n");
 	t_solution	*solution;
 	t_room      *start;
 
 	solution = allocate_solution(solution_amount_counter(farm->room));
 	start = find_start(farm->room);
+	// print_farm(farm);
 	find_quickest_way(start, solution);
 }
 
@@ -41,14 +41,26 @@ int    find_quickest_way(t_room *room, t_solution *solution)
 	ft_printf("FIND QUCKEST WAY\n");
 	t_conn  *tmp;
 
-	if (room->connections->room)
+	if (room && room->connections && room->connections->room != NULL)
+	{
+		ft_printf("here1\n");
 		tmp = room->connections;
+	}
 	else
+	{
+		ft_printf("here\n");
 		return (0);
+	}
+	ft_printf("%s\n", tmp->room->name);
 	if (room->is_finish == 1)
 		return (1);
+	if (room->blame == 0)
+		room->blame = 1;
+	else
+		return (0);
 	while(tmp)
 	{
+		ft_printf("Inside while\n");
 		if (find_quickest_way(tmp->room, solution) == 1)
 		{
 			new_solution(tmp, solution);
@@ -62,7 +74,6 @@ int    find_quickest_way(t_room *room, t_solution *solution)
 /* counts the minimum number of connections between start and finish */
 int     solution_amount_counter(t_room *room)
 {
-	ft_printf("SOL AMOUNT COUNTER\n");
 	int start;
 	int finish;
 
